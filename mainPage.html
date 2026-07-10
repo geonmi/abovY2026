@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>어보브반도체(주) - 리뉴얼 레이아웃 시안</title>
+    <title>어보브반도체(주) - 리뉴얼 레이아웃 최종안</title>
     <style>
         /* 기본 초기화 및 글로벌 스타일 */
         * {
@@ -28,7 +28,7 @@
             list-style: none;
         }
 
-        /* 공통 스타일 지표 */
+        /* 공통 레이아웃 구조 */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -89,14 +89,15 @@
         .logo {
             font-size: 28px;
             font-weight: 900;
-            color: #022b63;
+            color: #012d6a;
             letter-spacing: -1px;
+            display: flex;
+            align-items: center;
         }
 
             .logo span {
                 color: #42b883;
             }
-        /* ABOV 끝자리 녹색 포인트 */
 
         nav ul {
             display: flex;
@@ -106,7 +107,7 @@
             nav ul li a {
                 font-size: 16px;
                 font-weight: bold;
-                color: #444;
+                color: #333;
             }
 
                 nav ul li a:hover {
@@ -116,25 +117,24 @@
         .header-util {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
             font-size: 13px;
-            color: #666;
+            color: #555;
         }
 
         .btn-contact {
             background: #0056b3;
             color: #fff;
-            padding: 8px 16px;
+            padding: 8px 18px;
             border-radius: 4px;
             font-weight: bold;
         }
 
         /* 2. 히어로 배너 */
         .hero {
-            background: linear-gradient(135deg, #021936 0%, #05336b 100%);
+            background: linear-gradient(135deg, #02142d 0%, #052c5c 100%);
             color: #fff;
-            padding: 80px 0;
-            position: relative;
+            padding: 100px 0;
             overflow: hidden;
         }
 
@@ -145,82 +145,54 @@
         }
 
         .hero-text {
-            flex: 1;
-            z-index: 2;
+            flex: 1.2;
         }
 
             .hero-text h1 {
-                font-size: 38px;
+                font-size: 42px;
                 font-weight: bold;
                 line-height: 1.3;
-                margin-bottom: 15px;
+                margin-bottom: 20px;
+                letter-spacing: -1px;
             }
 
             .hero-text p.sub {
-                font-size: 18px;
+                font-size: 20px;
                 color: #bcccdf;
-                margin-bottom: 10px;
+                margin-bottom: 12px;
             }
 
             .hero-text p.desc {
-                font-size: 14px;
+                font-size: 15px;
                 color: #8fa7c7;
-                margin-bottom: 30px;
+                margin-bottom: 35px;
             }
 
         .hero-btn {
             display: inline-block;
             background: #0056b3;
             color: #fff;
-            padding: 12px 28px;
+            padding: 14px 32px;
             font-weight: bold;
             border-radius: 4px;
             font-size: 14px;
         }
 
-        /* 메인 칩 그래픽 모사 */
         .hero-graphic {
-            flex: 1;
+            flex: 0.8;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
+            justify-content: flex-end;
         }
 
-        .chip-mock {
-            width: 280px;
-            height: 280px;
-            background: #0b2240;
-            border: 4px solid #42b883;
-            border-radius: 20px;
-            box-shadow: 0 0 40px rgba(66, 184, 131, 0.4);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            font-weight: bold;
-        }
-
-            .chip-mock .chip-logo {
-                font-size: 32px;
-                color: #fff;
-                letter-spacing: 1px;
+            .hero-graphic img {
+                max-width: 100%;
+                height: auto;
+                filter: drop-shadow(0 0 30px rgba(66,184,131,0.3));
             }
 
-                .chip-mock .chip-logo span {
-                    color: #42b883;
-                }
-
-            .chip-mock .chip-sub {
-                font-size: 12px;
-                color: #8fa7c7;
-                margin-top: 10px;
-            }
-
-        /* 3. 신제품 하이라이트 (비대칭 그리드 구조) */
+        /* 3. 신제품 하이라이트 (비대칭 대형 + 4분할 그리드) */
         .products {
-            padding: 60px 0;
+            padding: 80px 0;
             background: #fff;
         }
 
@@ -229,9 +201,9 @@
             gap: 24px;
         }
 
-        /* 메인 대형 카드 */
+        /* 좌측 대형 메인 카드 */
         .product-main-card {
-            flex: 1.2;
+            flex: 1.1;
             background: linear-gradient(135deg, #07172b 0%, #0d2b52 100%);
             border-radius: 12px;
             padding: 40px;
@@ -239,8 +211,10 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 380px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            min-height: 420px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
         }
 
         .p-main-tag {
@@ -248,26 +222,29 @@
             font-weight: bold;
             color: #42b883;
             margin-bottom: 15px;
+            display: inline-block;
         }
 
         .product-main-card h3 {
-            font-size: 28px;
-            margin-bottom: 15px;
+            font-size: 30px;
+            margin-bottom: 20px;
             font-weight: bold;
             line-height: 1.2;
+            z-index: 2;
         }
 
         .product-main-card ul {
             margin-bottom: 30px;
+            z-index: 2;
         }
 
             .product-main-card ul li {
                 font-size: 14px;
                 color: #a5bccc;
-                margin-bottom: 8px;
+                margin-bottom: 10px;
                 display: flex;
                 align-items: center;
-                gap: 6px;
+                gap: 8px;
             }
 
                 .product-main-card ul li::before {
@@ -280,20 +257,29 @@
             display: inline-block;
             background: #fff;
             color: #111;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border-radius: 4px;
             font-weight: bold;
             font-size: 13px;
             align-self: flex-start;
+            z-index: 2;
         }
 
-        /* 서브 4개 그리드 */
+        .main-card-img {
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            width: 180px;
+            opacity: 0.8;
+            z-index: 1;
+        }
+
+        /* 우측 서브 카드 4개 구성 */
         .product-sub-grid {
-            flex: 1.8;
+            flex: 1.9;
             display: grid;
-            grid-template-columns: repeat(2, 1-fragment);
-            gap: 20px;
             grid-template-columns: 1fr 1fr;
+            gap: 20px;
         }
 
         .product-sub-card {
@@ -303,53 +289,50 @@
             background: #fff;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
             transition: all 0.3s;
         }
 
             .product-sub-card:hover {
-                box-shadow: 0 8px 16px rgba(0,0,0,0.06);
-                border-color: #cbd6e2;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+                border-color: #0056b3;
             }
 
-        .p-sub-info h4 {
-            font-size: 16px;
-            font-weight: bold;
-            margin: 8px 0 12px 0;
-            color: #111;
+        .p-sub-info {
+            flex: 1;
         }
 
-        .p-sub-info ul li {
-            font-size: 12px;
-            color: #666;
-            margin-bottom: 4px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-            .p-sub-info ul li::before {
-                content: "✓";
-                color: #0056b3;
+            .p-sub-info h4 {
+                font-size: 16px;
+                font-weight: bold;
+                margin: 8px 0 10px 0;
+                color: #111;
+                line-height: 1.3;
             }
 
-        .p-sub-img {
-            width: 70px;
-            height: 70px;
-            background: #f4f7f6;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-            color: #999;
-            font-weight: bold;
-            border: 1px dashed #ddd;
+            .p-sub-info ul li {
+                font-size: 12px;
+                color: #666;
+                margin-bottom: 4px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+
+                .p-sub-info ul li::before {
+                    content: "✓";
+                    color: #0056b3;
+                }
+
+        .product-sub-card img {
+            width: 85px;
+            height: 85px;
+            object-fit: contain;
         }
 
-        /* 4. 주요 바로가기 (컴팩트 아이콘 가로 배열) */
+        /* 4. 주요 바로가기 (컴팩트 아이콘 그리드) */
         .shortcuts {
-            padding: 25px 0;
+            padding: 30px 0;
             background: #f8fafc;
             border-top: 1px solid #eef2f5;
             border-bottom: 1px solid #eef2f5;
@@ -365,30 +348,30 @@
             flex: 1;
             background: #fff;
             border: 1px solid #eef2f5;
-            padding: 15px;
+            padding: 18px 15px;
             border-radius: 8px;
             display: flex;
             align-items: center;
             gap: 15px;
-            transition: transform 0.2s;
+            transition: all 0.2s;
         }
 
             .shortcut-item:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+                transform: translateY(-4px);
+                box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+                border-color: #cbd6e2;
             }
 
         .sc-icon {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             background: #e6effa;
             color: #0056b3;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 18px;
+            font-size: 20px;
         }
 
         .sc-text h4 {
@@ -398,14 +381,14 @@
         }
 
         .sc-text p {
-            font-size: 11px;
+            font-size: 12px;
             color: #777;
-            margin-top: 2px;
+            margin-top: 3px;
         }
 
         /* 5. 최신 뉴스 (카드형 뉴스 스타일) */
         .news {
-            padding: 60px 0;
+            padding: 80px 0;
         }
 
         .news-grid {
@@ -416,22 +399,21 @@
 
         .news-card {
             border: 1px solid #eef2f5;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            min-height: 280px;
             transition: all 0.3s;
+            background: #fff;
         }
 
             .news-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+                transform: translateY(-6px);
+                box-shadow: 0 12px 24px rgba(0,0,0,0.08);
             }
 
         .news-body {
-            padding: 20px;
+            padding: 22px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -441,7 +423,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .news-tag {
@@ -478,11 +460,12 @@
             font-weight: bold;
             color: #111;
             line-height: 1.4;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            height: 42px;
         }
 
         .news-body p {
@@ -492,42 +475,39 @@
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            line-height: 1.5;
         }
 
-        .news-img-placeholder {
-            height: 100px;
-            background: #eff3f7;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #aaa;
-            font-size: 12px;
-            font-weight: bold;
+        .news-img {
+            height: 140px;
+            width: 100%;
+            object-fit: cover;
             border-top: 1px solid #eef2f5;
         }
 
         /* 6. 푸터 구조 유지 */
         footer {
-            background: #08121e;
+            background: #07111c;
             color: #a5bccc;
-            padding: 60px 0 30px 0;
+            padding: 70px 0 40px 0;
             font-size: 13px;
+            border-top: 4px solid #42b883;
         }
 
         .footer-top {
             display: flex;
             justify-content: space-between;
             margin-bottom: 40px;
-            border-bottom: 1px solid #1a293d;
+            border-bottom: 1px solid #162536;
             padding-bottom: 40px;
         }
 
         .footer-info {
-            flex: 1.5;
+            flex: 1.2;
         }
 
         .footer-logo {
-            font-size: 26px;
+            font-size: 28px;
             font-weight: bold;
             color: #fff;
             margin-bottom: 20px;
@@ -538,26 +518,27 @@
             }
 
         .footer-links-grid {
-            flex: 3.5;
+            flex: 3.8;
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
+            gap: 25px;
         }
 
         .footer-link-group h5 {
             color: #fff;
             font-size: 14px;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             font-weight: bold;
         }
 
         .footer-link-group ul li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
             .footer-link-group ul li a {
-                color: #8499ad;
+                color: #7f95a8;
                 font-size: 13px;
+                transition: color 0.2s;
             }
 
                 .footer-link-group ul li a:hover {
@@ -567,18 +548,26 @@
         .footer-bottom {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            font-size: 12px;
-            color: #62778c;
-            padding-top: 10px;
+            align-items: flex-end;
+            font-size: 13px;
+            color: #5c7082;
+            padding-top: 15px;
         }
 
         .f-bottom-left span {
-            margin-right: 20px;
+            margin-right: 15px;
+            font-weight: bold;
+            color: #7f95a8;
         }
 
         .f-bottom-left p {
-            margin-top: 8px;
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+
+        .f-bottom-right {
+            text-align: right;
+            line-height: 1.6;
         }
     </style>
 </head>
@@ -587,7 +576,7 @@
     <!-- 1. 상단 내비게이션 영역 -->
     <header>
         <div class="container header-container">
-            <div class="logo">ABOV<span></span></div>
+            <div class="logo">ABOV<span>●</span></div>
             <nav>
                 <ul>
                     <li><a href="#">제품</a></li>
@@ -617,15 +606,13 @@
                 <a href="#" class="hero-btn">자세히 보기 &gt;</a>
             </div>
             <div class="hero-graphic">
-                <div class="chip-mock">
-                    <div class="chip-logo">ABOV<span></span></div>
-                    <div class="chip-sub">SEMICONDUCTOR</div>
-                </div>
+                <!-- 고품질 반도체 칩 가상 일러스트 이미지 적용 -->
+                <img src="https://images.unsplash.com/photo-1591453089816-0fbb971b454c?auto=format&fit=crop&w=400&q=80" alt="ABOV Semi Chip">
             </div>
         </div>
     </section>
 
-    <!-- 3. 신제품 하이라이트 섹션 -->
+    <!-- 3. 신제품 하이라이트 섹션 (비대칭 카드 레이아웃) -->
     <section class="products">
         <div class="container">
             <div class="section-header">
@@ -634,32 +621,34 @@
             </div>
 
             <div class="product-layout">
-                <!-- 좌측 대형 메인 카드 -->
+                <!-- 좌측 대형 메인 제품 카드 -->
                 <div class="product-main-card">
                     <div>
-                        <span class="p-main-tag">NEW ARRIVAL</span>
+                        <span class="p-main-tag">HOT PRODUCT</span>
                         <h3>ABOV 32-bit MCU<br>ACM32H4 시리즈</h3>
                         <ul>
-                            <li>Arm&reg; Cortex&reg;-M4F 코어 탑재</li>
-                            <li>200MHz / 1MB Flash 고성능 제어</li>
-                            <li>Ethernet / USB OTG 지원 인프라</li>
+                            <li>Arm&reg; Cortex&reg;-M4F 고성능 프로세서</li>
+                            <li>200MHz 주파수 / 1MB 내장 Flash</li>
+                            <li>Ethernet 및 USB OTG 다중 연동 인터페이스</li>
                         </ul>
                     </div>
                     <a href="#" class="btn-white">자세히 보기 &gt;</a>
+                    <!-- 실제 반도체 칩 이미지 백그라운드 배치 -->
+                    <img class="main-card-img" src="https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?auto=format&fit=crop&w=200&q=80" alt="Chip">
                 </div>
 
-                <!-- 우측 서브 4개 그리드 구성 -->
+                <!-- 우측 서브 4분할 제품 리스트 -->
                 <div class="product-sub-grid">
                     <div class="product-sub-card">
                         <div class="p-sub-info">
                             <span class="badge-new">NEW</span>
                             <h4>BLDC 모터 제어 MCU<br>MCU+FOC Combo</h4>
                             <ul>
-                                <li>FOC / Pre-driver 내장</li>
-                                <li>3-Shunt / Sensorless</li>
+                                <li>FOC / Pre-driver 하드웨어 내장</li>
+                                <li>3-Shunt 및 Sensorless 제어</li>
                             </ul>
                         </div>
-                        <div class="p-sub-img">CHIP IMAGE</div>
+                        <img src="https://images.unsplash.com/photo-1601662528567-526cd06f6582?auto=format&fit=crop&w=120&q=80" alt="Motor MCU">
                     </div>
 
                     <div class="product-sub-card">
@@ -667,11 +656,11 @@
                             <span class="badge-new">NEW</span>
                             <h4>Touch MCU<br>TouchMe™ IC</h4>
                             <ul>
-                                <li>Capacitive Touch 기술</li>
-                                <li>Multi-Channel 지원</li>
+                                <li>Capacitive 고감도 터치 인지</li>
+                                <li>Multi-Channel 동시 제어 지원</li>
                             </ul>
                         </div>
-                        <div class="p-sub-img">CHIP IMAGE</div>
+                        <img src="https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&w=120&q=80" alt="Touch IC">
                     </div>
 
                     <div class="product-sub-card">
@@ -679,11 +668,11 @@
                             <span class="badge-new">NEW</span>
                             <h4>Wireless MCU<br>BLE / Sub-GHz</h4>
                             <ul>
-                                <li>2.4GHz & Sub-GHz 통합</li>
-                                <li>Low Power 최적화 설계</li>
+                                <li>2.4GHz & Sub-GHz 원거리 통신</li>
+                                <li>초저전력 대기모드 아키텍처</li>
                             </ul>
                         </div>
-                        <div class="p-sub-img">CHIP IMAGE</div>
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=120&q=80" alt="Wireless MCU">
                     </div>
 
                     <div class="product-sub-card">
@@ -691,66 +680,66 @@
                             <span class="badge-new">NEW</span>
                             <h4>Power & Analog<br>PMC / Analog</h4>
                             <ul>
-                                <li>PMC / LDO / ADC 내장</li>
-                                <li>High Accuracy 정밀 제어</li>
+                                <li>PMC, 고정밀 LDO 및 ADC 기본 내장</li>
+                                <li>High Accuracy 아날로그 파워 변환</li>
                             </ul>
                         </div>
-                        <div class="p-sub-img">CHIP IMAGE</div>
+                        <img src="https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=120&q=80" alt="Power IC">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. 주요 바로가기 섹션 -->
+    <!-- 4. 주요 바로가기 섹션 (컴팩트 가로 정렬) -->
     <section class="shortcuts">
         <div class="container shortcut-grid">
             <div class="shortcut-item">
                 <div class="sc-icon">🔍</div>
                 <div class="sc-text">
                     <h4>Product Selector</h4>
-                    <p>제품 검색 및 맞춤 추천</p>
+                    <p>제품 검색 및 추천</p>
                 </div>
             </div>
             <div class="shortcut-item">
                 <div class="sc-icon">📖</div>
                 <div class="sc-text">
                     <h4>Product Guide</h4>
-                    <p>제품 라인업 안내 가이드</p>
+                    <p>제품 안내 가이드</p>
                 </div>
             </div>
             <div class="shortcut-item">
                 <div class="sc-icon">📄</div>
                 <div class="sc-text">
                     <h4>Datasheet</h4>
-                    <p>제품 상세 사양 사서</p>
+                    <p>제품 사양 데이터시트</p>
                 </div>
             </div>
             <div class="shortcut-item">
                 <div class="sc-icon">⚙️</div>
                 <div class="sc-text">
                     <h4>SDK</h4>
-                    <p>소프트웨어 개발 키트 지원</p>
+                    <p>개발 소프트웨어 킷</p>
                 </div>
             </div>
             <div class="shortcut-item">
                 <div class="sc-icon">📝</div>
                 <div class="sc-text">
                     <h4>App Note</h4>
-                    <p>기술 응용 가이드 및 예제</p>
+                    <p>응용 가이드 및 예제</p>
                 </div>
             </div>
             <div class="shortcut-item">
                 <div class="sc-icon">▶️</div>
                 <div class="sc-text">
                     <h4>Video</h4>
-                    <p>영상 가이드 및 교육 자료</p>
+                    <p>동영상 기술 교육</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 5. 최신 뉴스 섹션 -->
+    <!-- 5. 최신 뉴스 섹션 (카드 썸네일 통합) -->
     <section class="news">
         <div class="container">
             <div class="section-header">
@@ -766,10 +755,10 @@
                             <span class="news-tag tag-press">보도자료</span>
                             <span class="news-date">2026.06.20</span>
                         </div>
-                        <h4>ABOV, 고성능 32비트 MCU ACM32H4 시리즈 출시</h4>
-                        <p>Arm&reg; Cortex&reg;-M4F 기반 초고성능 라인업 구축을 통한 글로벌 시장 본격 공략</p>
+                        <h4>ABOV, 고성능 32비트 MCU ACM32H4 시리즈 공식 출시</h4>
+                        <p>차세대 가전 및 IoT 스마트 산업 제어 인프라에 대응하는 고사양 프로세서 시장 공략 본격화</p>
                     </div>
-                    <div class="news-img-placeholder">REPRESENTATIVE IMAGE</div>
+                    <img class="news-img" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=250&q=80" alt="News 1">
                 </div>
                 <!-- 뉴스카드 2 -->
                 <div class="news-card">
@@ -778,10 +767,10 @@
                             <span class="news-tag tag-product">제품 출시</span>
                             <span class="news-date">2026.05.12</span>
                         </div>
-                        <h4>BLDC 모터 제어용 MCU+FOC Combo 공개</h4>
-                        <p>Pre-driver 통합 및 강력한 하드웨어 벡터 제어로 구동 효율성 극대화</p>
+                        <h4>고성능 모터 구동을 위한 MCU+FOC Combo 전격 공개</h4>
+                        <p>컴팩트한 Pre-driver와 하드웨어 벡터 연산 엔진 통합을 통한 모터 구동 에너지 효율성 증명</p>
                     </div>
-                    <div class="news-img-placeholder">REPRESENTATIVE IMAGE</div>
+                    <img class="news-img" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=250&q=80" alt="News 2">
                 </div>
                 <!-- 뉴스카드 3 -->
                 <div class="news-card">
@@ -790,10 +779,10 @@
                             <span class="news-tag tag-tech">기술 칼럼</span>
                             <span class="news-date">2026.04.05</span>
                         </div>
-                        <h4>Sub-GHz 무선 기술로 여는 차세대 IoT 인프라의 미래</h4>
-                        <p>실사용 빌딩 환경에서의 뛰어난 신뢰성과 장애물 투과력의 초저전력 제어 기법</p>
+                        <h4>Sub-GHz 무선 네트워크 기술로 구현하는 스마트 빌딩 제어</h4>
+                        <p>콘크리트 벽과 같은 가혹한 전파 방해물 환경에서도 뛰어난 투과력을 발휘하는 무선 제어 핵심 정리</p>
                     </div>
-                    <div class="news-img-placeholder">REPRESENTATIVE IMAGE</div>
+                    <img class="news-img" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=250&q=80" alt="News 3">
                 </div>
                 <!-- 뉴스카드 4 -->
                 <div class="news-card">
@@ -802,10 +791,10 @@
                             <span class="news-tag tag-event">이벤트</span>
                             <span class="news-date">2026.03.28</span>
                         </div>
-                        <h4>ABOV Tech Day 2026 성황리 개최 안내</h4>
-                        <p>최신 제품 로드맵 공유 및 미래 차세대 지능형 반도체 솔루션 기술 교류의 장</p>
+                        <h4>ABOV 글로벌 개발자 테크 데이(Tech Day) 개최 안내</h4>
+                        <p>국내외 핵심 엔지니어들을 초청하여 기술 로드맵 공유 및 차세대 세미컨덕터 생태계 교류 진행</p>
                     </div>
-                    <div class="news-img-placeholder">REPRESENTATIVE IMAGE</div>
+                    <img class="news-img" src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=250&q=80" alt="News 4">
                 </div>
             </div>
         </div>
@@ -816,7 +805,7 @@
         <div class="container">
             <div class="footer-top">
                 <div class="footer-info">
-                    <div class="footer-logo">ABOV<span></span></div>
+                    <div class="footer-logo">ABOV<span>●</span></div>
                 </div>
                 <div class="footer-links-grid">
                     <div class="footer-link-group">
@@ -867,11 +856,11 @@
             <div class="footer-bottom">
                 <div class="f-bottom-left">
                     <span>개인정보처리방침</span> | <span>이용약관</span> | <span>사이트맵</span>
-                    <p>경기도 성남시 분당구 판교로 255번길 9-22 | Tel: 031-707-1234 | Email: info@abov.co.kr</p>
+                    <p>경기도 성남시 분당구 판교로 255번길 9-22 | Tel: 031-707-1234 | E-mail: info@abov.co.kr</p>
                     <p>&copy; 2026 ABOV Semiconductor Co., Ltd. All rights reserved.</p>
                 </div>
                 <div class="f-bottom-right">
-                    <span>📞 +82-2-0000-0000</span><br>
+                    <strong>📞 +82-2-0000-0000</strong><br>
                     <span>✉️ contact@abovsemi.com</span>
                 </div>
             </div>
